@@ -1,0 +1,160 @@
+
+/************ 
+Card Default
+************/
+.jade-card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    transition: 0.5s ease;
+
+    .jade-image { width: 100%; }
+
+    .jade-card-body {
+        padding: 1.25rem;
+    }
+}
+
+/************ 
+Card Types 
+************/
+.card-rounded {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    .jade-card-image img {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        object-fit: cover;
+    }
+}
+
+.card-circle {
+    .jade-card-image {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .jade-card-image img {
+        border-radius: 100%;
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+    }
+    .jade-card-body {
+        text-align: center;
+    }
+}
+
+.card-square {
+    @include border-radius(0);
+}
+
+
+
+
+
+/************
+Grid CSS 
+************/
+.display-grid {
+    @include display-grid;
+}
+
+.jade-grid {
+    @extend .display-grid;
+    grid-template-columns: 1fr;
+}
+
+
+/************
+Posts Section 
+************/
+
+.jade-posts-block {
+    padding: 6rem 0;
+
+    .jade-grid {
+        grid-row-gap: 40px;
+        grid-gap: 40px;
+    
+        .jade-card {
+            cursor: pointer;
+    
+            &:hover {
+                @include transformScale(1.05);
+                @include  box-shadow(0, 0, 31px -8px, rgba(0,0,0,.34));
+            }
+        }
+    
+        .jade-card-title {
+    
+            .jade-card-heading {
+                margin-bottom: 1rem;
+            }
+    
+            .jade-card-link {
+                color: $accent-2;
+                font-weight: 800;
+            }
+        }
+    }
+}
+
+/****************
+Layout Card 01 
+****************/
+.jade-card-01 {
+
+
+    .display-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    background-size: cover;
+
+    
+    .jade-card-heading {
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+    }
+
+    
+
+}
+
+
+
+
+
+
+
+@media (min-width: 620px) {
+	
+}
+
+
+@media (min-width: 1200px) {
+	.container {
+		max-width: 1200px;
+	}
+}
+
+
+
+
+/* Card with Image Section */
+
+
