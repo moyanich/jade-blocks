@@ -19,8 +19,10 @@ Card Default
   transition: 0.5s ease;
 }
 
-.jade-card .jade-image {
+.jade-card .jade-card-image {
   width: 100%;
+  background-size: cover;
+  background-position: 100%;
 }
 
 .jade-card .jade-card-body {
