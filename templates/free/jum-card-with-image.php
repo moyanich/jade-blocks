@@ -11,6 +11,27 @@
  // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+$jid = $block['id'];
+$jade_class_name = 'card';
+
+$jid_card = str_replace("block", $jade_class_name, $jid);
+
+// Create class attribute allowing for custom "className" and "align" values.
+if( !empty($block['className']) ) {
+    $jade_class_name .= ' ' . $block['className'];
+}
+if( !empty($block['align']) ) {
+    $jade_class_name .= ' align' . $block['align'];
+}
+if( !empty($block['anchor']) ) {
+    $jid = $block['anchor'];
+}
+
+if( !empty($block['anchor']) ) {
+    $id = $block['anchor'];
+ }
+
+
 // create id attribute for specific styling
 $jum_block_id = 'jumelles-' . $block['id'];
 // create align class ("alignwide") from block setting ("wide")

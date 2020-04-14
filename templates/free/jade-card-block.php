@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) || exit;
 
 // create id attribute for specific styling
 $jid = $block['id'];
-$jade_class_name = 'card';
+$jade_class_name = 'jade-card';
 
 $jid_card = str_replace("block", $jade_class_name, $jid);
 
@@ -24,10 +24,6 @@ if( !empty($block['className']) ) {
 if( !empty($block['align']) ) {
     $jade_class_name .= ' align' . $block['align'];
 }
-if( !empty($block['anchor']) ) {
-    $jid = $block['anchor'];
-}
-
 
 /* Main Variables */
 $jade_image = get_field( 'jade_image' );
@@ -66,8 +62,9 @@ elseif ($jade_image_styles == 'Square') :
 endif; ?>
 
 
-<section id="<?php echo esc_attr($jid); ?>" class="jade-section jade-element jadeelles-<?php echo esc_attr($jade_class_name); ?> jade-card-01 jade-card-<?php echo esc_attr($jid); ?> ">
+<section id="<?php echo esc_attr($jid); ?>" class="jade-section jade-element jade-card-box <?php echo esc_attr($jade_class_name); ?> <?php echo esc_attr($jid_card); ?> ">
 
+<?php if (!empty( $jade_card_background_color ) || !empty(  $jade_custom_title_styles) || !empty( $jade_excerpt_custom_styles )  )  : ?>
 <style type="text/css">
 
 <?php 
@@ -90,6 +87,8 @@ if ($jade_excerpt_custom_styles == 1) :  ?>
 <?php endif; ?>
 
 </style>
+
+<?php endif; ?>
 
     <div class="jade-container container">
         <div class="jade-row jade-card jade-grid <?php echo $jade_card_type; ?>">

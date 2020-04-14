@@ -15,7 +15,11 @@ Card Default
     word-wrap: break-word;
     transition: 0.5s ease;
 
-    .jade-image { width: 100%; }
+    .jade-image { 
+        width: 100%; 
+        background-size: cover;
+        background-position: 100%;
+    }
 
     .jade-card-body {
         padding: 1.25rem;
