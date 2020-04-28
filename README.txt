@@ -1,6 +1,6 @@
 === Jade Blocks - ACF Blocks Suite ===
 Contributors: anicholson
-Donate link: www.google.com
+Donate link: 
 Tags:  block, gutenberg block, acf block, gutenberg, acf, editor
 Requires at least: 4.0
 Tested up to: 4.0
@@ -8,7 +8,9 @@ Stable tag: 0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+## A Advanced Custom Fields (ACF) Block Builder. Inspired by ACF BLocks
+
+#### This plugin is a work in progress. I will tag a 1.0 release when it's ready to go! Ideas welcome :)
 
 == Description ==
 

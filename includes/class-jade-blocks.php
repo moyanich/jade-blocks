@@ -158,6 +158,14 @@ class Jade_Blocks {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'jade_blocks_Settings_Page' , 10 );
 
+		$this->loader->add_action( 'acf/input/admin_footer', $plugin_admin, 'gutenberg_sections_register_acf_color_palette' );
+
+		/*$this->loader->add_action( 'after_setup_theme', $plugin_admin, 'editor_color_palette' );
+
+		$this->loader->add_action( 'acf/input/admin_footer', $plugin_admin, 'wd_acf_color_palette' ); */
+
+		//$this->loader->add_action( 'customize_register', $plugin_admin, 'tabor_customize_register', 11 );
+
 		$this->loader->add_filter('acf/settings/save_json', $plugin_admin, 'jade_blocks_json_save_point');
 		$this->loader->add_filter('acf/settings/load_json', $plugin_admin, 'jade_blocks_json_load_point');
 

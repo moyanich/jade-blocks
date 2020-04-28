@@ -140,6 +140,17 @@ Layout Card 01
   margin-bottom: 1.5rem;
 }
 
+/****************
+Hero 01 
+****************/
+.hero-1 {
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 114px;
+  padding-bottom: 200px;
+  z-index: -1;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -147,3 +158,26 @@ Layout Card 01
 }
 
 /* Card with Image Section */
+.hero-6 .wp-block-button {
+  font-size: 14px !important;
+}
+
+.hero-6 {
+  padding-top: 114px;
+  padding-bottom: 200px;
+  z-index: -1;
+}
+
+.hero-6 .columns-2 {
+  max-width: 928px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-6 .columns-1 {
+  margin: 0 auto;
+  max-width: 72%;
+}

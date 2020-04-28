@@ -19,7 +19,6 @@ $jade_class_name = 'jade-card';
 //$jid_card = str_replace("block", $jade_class_name, $jid);
 $jade_element = str_replace("block", $jade_element, $jid);
 
-
 // Create class attribute allowing for custom "className" and "align" values.
 if( !empty($block['className']) ) {
     $jade_class_name .= ' ' . $block['className'];
@@ -56,78 +55,33 @@ $jade_excerpt_color = get_field('jade_excerpt_color');
 $jade_image_styles = get_field('jade_image_styles');
 
 if ($jade_image_styles == 'Rounded') : 
-    $jade_card_type = 'card-rounded';
+    $jade_image_styles = 'card-rounded';
 elseif ($jade_image_styles == 'Circle') :
-    $jade_card_type = 'card-circle';
+    $jade_image_styles = 'card-circle';
 elseif ($jade_image_styles == 'Square') :
-    $jade_card_type = 'card-square';
+    $jade_image_styles = 'card-square';
 endif; ?>
-
-<?php
-
-$card_style = "";
-if (!empty($jade_card_background_color)) :
-$card_style .= '
-    background-color: ' . $jade_card_background_color . ';';
-endif;
-?>
-
-<?php /* if (!empty( $jade_card_background_color ) || !empty(  $jade_custom_title_styles) || !empty( $jade_excerpt_custom_styles )  )  : ?>
-
-<style type="text/css">
-
-<?php 
-if (!empty( $jade_card_background_color ))  : ?>
-#<?php echo $jid; ?> .jade-card-body {
-    background-color: <?php echo $jade_card_background_color; ?>; 
-}
-<?php endif; 
-
-if ($jade_custom_title_styles == 1) : ?>
-#<?php echo $jid; ?> .jade-card .jade-card-title .jade-card-heading {
-    color: <?php echo $jade_title_color; ?> !important;
-}
-<?php endif; 
-
-if ($jade_excerpt_custom_styles == 1) :  ?>
-#<?php echo $jid; ?> .jade-card .jade-card-content {
-    color: <?php echo $jade_excerpt_color; ?> !important ;
-} 
-<?php endif; ?>
-
-</style>
-
-<?php endif; */ ?>
-
 
 <section id="<?php echo esc_attr($jid); ?>" class="jade-section jade-element <?php echo esc_attr($jade_element); ?>">
     <div class="jade-container container">
-        <div class="jade-row row jade-grid <?php echo $jade_card_type; ?>">
-            <div class="<?php echo esc_attr($jade_class_name); ?>" style="<?php $card_style; ?>">
-                <div class="jade-card-image" <?php if ( !empty($jade_image)) : echo  'style="background-image: url(' . esc_url($jade_image['url']) . ');"'; endif; ?>>
-                    <?php /*
-                        ?>
-                            
-                            <img src="" alt="<?php echo esc_attr($jade_image['alt']); ?>" />
+        <div class="jade-row row jade-grid">
+            <div class="<?php echo esc_attr($jade_class_name); ?> <?php echo esc_attr($jade_image_styles); ?>" <?php echo ($jade_card_background_color) ? 'style="background-color:'. $jade_card_background_color . ';"' : '' ?>>
 
-                    <?php
-                        else:
-                            echo '<img class="jade-image" src="' . esc_url( get_template_directory_uri() ) . '/acf-blocks/img/placeholder-image.jpg">';
-                        endif; */
-                    ?>
-                </div>
+                <div class="jade-card-image">
+
+                <?php echo ($jade_image) ? '<img src="' . esc_url($jade_image['url'])  . '">' : '<img src="' . plugins_url() . '/jade-blocks/img/placeholder-image.jpg)">' ?></div>
                 
                 <div class="jade-card-body">
+
                     <?php if( !empty($jade_title_html_tag ) || !empty($jade_title) ): ?>
                         <div class="jade-card-title">	
-                            <<?php echo $jade_title_html_tag; ?> class="jade-card-heading"><?php echo $jade_title; ?></<?php echo $jade_title_html_tag; ?>>
-                        </div>
+                            <<?php echo $jade_title_html_tag; ?> class="jade-card-heading" <?php echo ($jade_custom_title_styles == 1) ? 'style="color:' . $jade_title_color . ';"' : '' ?>><?php echo $jade_title; ?></<?php echo $jade_title_html_tag; ?>></div>
                     <?php endif; ?>
 
                     <div class="clearfix"></div>
-                    
+                   
                     <?php if( !empty($jade_content )  ): ?>
-                        <div class="jade-card-content">
+                        <div class="jade-card-content" <?php echo ($jade_excerpt_custom_styles == 1) ? 'style="color:' .  $jade_excerpt_color . ';"' : '' ?>>
                             <?php echo $jade_content;  ?>
                         </div>
                     <?php endif; ?>
@@ -135,6 +89,7 @@ if ($jade_excerpt_custom_styles == 1) :  ?>
                     <div class="jade-card-button pt-3">
                         <a href="<?php the_permalink(); ?>" class="btn btn-primary jade-btn">Read More</a>
                     </div>
+
                 </div>
             </div>
         </div>

@@ -82,6 +82,33 @@ function run_jade_blocks() {
 run_jade_blocks();
 
 
+/**
+ * Get the colors formatted for use with Iris, Automattic's color picker
+ */
+function output_the_colors() {
+
+	// get the colors
+	$color_palette = current( (array) get_theme_support( 'editor-color-palette' ) );
+
+	// bail if there aren't any colors found
+	if ( !$color_palette )
+		return;
+
+	// output begins
+	ob_start();
+
+	// output the names in a string
+	echo '[';
+		foreach ( $color_palette as $color ) {
+			echo "'" . $color['color'] . "', ";
+		}
+	echo ']';
+
+	return ob_get_clean();
+
+}
+
+
 function jade_acf_block_render_callback( $block ) {
 	
 	// convert name ("acf/testimonial") into path friendly slug ("testimonial")
@@ -90,9 +117,6 @@ function jade_acf_block_render_callback( $block ) {
 	if( file_exists( plugin_dir_path( __FILE__ ) . 'templates/free/' . $jade_blocks_temp . '.php' ) ) { 
 		include( plugin_dir_path( __FILE__ ) . 'templates/free/' . $jade_blocks_temp . '.php' );
 	} 
-
-
-
 }
 
 	

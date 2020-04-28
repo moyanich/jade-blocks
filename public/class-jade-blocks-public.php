@@ -123,6 +123,31 @@ class Jade_Blocks_Public {
 		public function jade_blocks_acf_init() {
 	
 			if( function_exists('acf_register_block') ) {
+
+				/* HERO BLOCKS */
+
+				acf_register_block(array(
+					'name'				=> 'jade-hero-one',
+					'mode'				=> 'preview',
+					'align' 			=> 'full',
+					'title'				=> __('Hero Block'),
+					'description'		=> __('A custom hero block.'),
+					'render_callback'	=> 'jade_acf_block_render_callback',
+					'enqueue_assets' 	=> function(){
+						wp_enqueue_style( 'jade-block-css', plugin_dir_url( __FILE__ ) . '/css/jade-blocks-public.min.css', false,
+						'1.0.0' );
+					},
+					'category'			=> 'jade-acf-blocks',
+					'icon'				=> 'admin-comments',
+					'keywords'			=> array( 'hero', 'image', 'layout' ),
+					'supports'          => array(
+						'align'         => true,
+						'mode'          => true,
+						'multiple'      => true,
+					),
+				));
+
+				/* CARD BLOCKS */
 								
 				acf_register_block(array(
 					'name'				=> 'jade-card-block',
@@ -143,6 +168,9 @@ class Jade_Blocks_Public {
 						'multiple'      => true,
 					),
 				));
+
+
+				
 
 					// register a testimonial block
 				/*acf_register_block(array(

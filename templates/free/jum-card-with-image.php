@@ -32,6 +32,9 @@ if( !empty($block['anchor']) ) {
  }
 
 
+
+
+
 // create id attribute for specific styling
 $jum_block_id = 'jumelles-' . $block['id'];
 // create align class ("alignwide") from block setting ("wide")
@@ -178,6 +181,10 @@ $jum_image_styles = get_field('jum_image_styles');
 
                     <div id="jumelles-column-id-<?php echo $jum_unique_id; ?>" class="jumelles-column jumelles-column-<?php echo $jum_unique_id; ?>">
                         <div class="jum-card display-grid">
+
+                        <div class="jade-card-image" <?php /* echo ($jade_image) ? 'style="background-image: url(' . esc_url($jade_image['url']) . ');"' : 'style="background-image: url(' . plugins_url() . '/jade-blocks/img/placeholder-image.jpg);"'*/ ?>>
+
+                        
                             <div class="jum-card-image">
                                 <?php 
                                     if ( !empty($jum_image)) : ?>

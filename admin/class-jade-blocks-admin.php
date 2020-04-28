@@ -81,6 +81,7 @@ if ( !class_exists( 'Jade_Blocks_Admin' ) ) {
 
 		}
 
+		
 		/**
 		 * Register the JavaScript for the admin area.
 		 *
@@ -148,7 +149,100 @@ if ( !class_exists( 'Jade_Blocks_Admin' ) ) {
 			// return
 			return $jade_blocks_paths;
 		}
+
+
+		/*
+		public function editor_color_palette() {
+
+			// Disable Custom Colors
+			add_theme_support( 'disable-custom-colors' );
+		
+			// Editor Color Palette
+			add_theme_support( 'editor-color-palette', array(
+				array(
+					'name'  => __( 'Blue', 'ea-starter' ),
+					'slug'  => 'blue',
+					'color'	=> '#59BACC',
+				),
+				array(
+					'name'  => __( 'Green', 'ea-starter' ),
+					'slug'  => 'green',
+					'color' => '#58AD69',
+				),
+				array(
+					'name'  => __( 'Orange', 'ea-starter' ),
+					'slug'  => 'orange',
+					'color' => '#FFBC49',
+				),
+				array(
+					'name'	=> __( 'Red', 'ea-starter' ),
+					'slug'	=> 'red',
+					'color'	=> '#E2574C',
+				),
+			) );
+
+		}
+
+		
+		/**
+		 * ACF Color Palette
+		 *
+		 * Add default color palatte to ACF color picker for branding
+		 * Match these colors to colors in /functions.php & /assets/scss/partials/base/variables.scss
+		 *
+		*/
+		/*
+		
+		function wd_acf_color_palette() { ?>
+		<script type="text/javascript">
+		(function($) {
+			acf.add_filter('color_picker_args', function( args, $field ){
+				// add the hexadecimal codes here for the colors you want to appear as swatches
+				args.palettes = ['#21a8af', '#632695', '#9e15bf', '#b5267b', '#1d1d2c', '#f7f7f7', '#ffffff']
+				// return colors
+				return args;
+			});
+		})(jQuery);
+		</script>
+		<?php } */
+
+
+		
+
+		
+
+			/**
+		 * Add the colors into Iris
+		 */
+		
+		public function gutenberg_sections_register_acf_color_palette() {
+
+			$color_palette = output_the_colors();
+			if ( !$color_palette )
+				return;
+			?>
+			<script type="text/javascript">
+				(function( $ ) {
+					acf.add_filter( 'color_picker_args', function( args, $field ){
+
+						// add the hexadecimal codes here for the colors you want to appear as swatches
+						args.palettes = <?php echo $color_palette; ?>
+
+						// return colors
+						return args;
+
+					});
+				})(jQuery);
+			</script>
+			<?php
+		}
+
+
+
+
 	}
 
 }
+
+
 

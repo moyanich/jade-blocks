@@ -2,3 +2,18 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+ .acf-tab-group li {
+    margin: 0;
+    text-align: center;
+}
+
+.acf-tab-group li span {
+    display: block;
+}
+
+
+.acf-fields>.acf-tab-wrap .acf-tab-group li.active a {
+    background: #ffffff;
+    border-bottom: 2px solid #673AB7;
+}
