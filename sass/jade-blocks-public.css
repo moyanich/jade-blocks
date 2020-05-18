@@ -1,173 +1,164 @@
-
+/*--------------------------------------------------------------
+# Blocks
+--------------------------------------------------------------*/
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .text-left {
-    text-align: left;
+  text-align: left;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
+
 /************ 
 Card Default
 ************/
 .jade-card {
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    overflow: hidden;
-    transition: 0.5s ease;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  overflow: hidden;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 .jd-card {
-    overflow: hidden;
+  overflow: hidden;
+}
 
-    &__img {
-        position: relative;
-       
-        img {
-          display: block;
-          width: 100%;
-        }
-    }
+.jd-card__img {
+  position: relative;
+}
+
+.jd-card__img img {
+  display: block;
+  width: 100%;
 }
 
 .jd-card__content {
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1.25rem;
-
-    .jd-card__title {
-        margin-top: 0;
-        margin-bottom: .75rem;
-        font-weight: 500;
-        line-height: 1.2;
-    }
+  -ms-flex: 1 1 auto;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
 }
 
-
-
+.jd-card__content .jd-card__title {
+  margin-top: 0;
+  margin-bottom: .75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
 
 /****************************
     Card Version 1 
 ****************************/
-.jd-card__v1 {
-    &__img {
-        img {
-          max-height: 300px;
-          object-fit: cover;
-        }
-    }
+.jd-card__v1__img img {
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /****************************
     Card Version 2 
 ****************************/
-.jd-card__v2 {
-
-    figure {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-content: center;
-        padding: 2rem;
-    
-        img {
-            border-radius: 100%;
-            width: 200px;
-            height: 200px;
-        }
-    }
+.jd-card__v2 figure {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
 }
 
+.jd-card__v2 figure img {
+  border-radius: 100%;
+  width: 200px;
+  height: 200px;
+}
 
 /****************************
     Card Version 3
 ****************************/
 .jd-card__v3 {
-    position: relative;
-    
-    .jd-card__caption {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
-        background-blend-mode: multiply;
-        color: white;
-        text-shadow: 0 1px 1px rgba(#000, 0.35);
-        box-shadow: var(--shadow-md)
-    }
+  position: relative;
+}
+
+.jd-card__v3 .jd-card__caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.4)));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+  background-blend-mode: multiply;
+  color: white;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: var(--shadow-md);
+          box-shadow: var(--shadow-md);
 }
 
 a.jd-card__v3 {
-    display: block;
-    text-decoration: none;
-    transition: box-shadow .2s;
-  
-    &:hover {
-      //box-shadow: var(--shadow-md);
-    }
+  display: block;
+  text-decoration: none;
+  -webkit-transition: -webkit-box-shadow .2s;
+  transition: -webkit-box-shadow .2s;
+  transition: box-shadow .2s;
+  transition: box-shadow .2s, -webkit-box-shadow .2s;
 }
-
-
-
 
 /****************************
    Buttons 
 ****************************/
 .btn {
-    position: relative;
-    display: inline-flex;
-    font-weight: 400;
-    color: inherit;
-    text-align: center;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    text-decoration: none;
-
-    background-color: transparent;
-    border: 1px solid transparent;
-    padding: .375rem .75rem;
-    font-size: inherit;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: 400;
+  color: inherit;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: inherit;
+  line-height: 1.5;
+  border-radius: .25rem;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
 }
 
 .btn:hover {
-    color: #bbbbbb;
-    text-decoration: none;
+  color: #bbbbbb;
+  text-decoration: none;
 }
 
 .btn--reg {
-    color: #fff;
-    background-color: #6c757d;
-    border-color: #6c757d;
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
 }
-
-
-
-
-
-
-
 
 /************ 
 Card Types 
 ************/
-
 /*
 .jade-card {
     position: relative;
@@ -267,7 +258,6 @@ Card Types
 /************
 Grid CSS 
 ************/
-
 /*
 .display-grid {
     @include display-grid;
@@ -282,7 +272,6 @@ Grid CSS
 /************
 Posts Section 
 ************/
-
 /*
 
 .jade-posts-block {
@@ -318,7 +307,6 @@ Posts Section
 /****************
 Layout Card 01 
 ****************/
-
 /*
 .jade-card-01 {
 
@@ -371,8 +359,6 @@ Hero 01
 
 
 /* Card with Image Section */
-
-
 /*
 
 .hero-6 .wp-block-button{
@@ -398,3 +384,4 @@ Hero 01
 
 
  */
+/*# sourceMappingURL=jade-blocks-public.css.map */

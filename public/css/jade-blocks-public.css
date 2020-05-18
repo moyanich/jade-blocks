@@ -1,6 +1,22 @@
 /*--------------------------------------------------------------
 # Blocks
 --------------------------------------------------------------*/
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+
+
 /************ 
 Card Default
 ************/
@@ -15,38 +31,49 @@ Card Default
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
+  overflow: hidden;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
 
-.jade-card .jade-card-image {
-  width: 100%;
-  background-size: cover;
-  background-position: 100%;
+.jd-card {
+  overflow: hidden;
 }
 
-.jade-card .jade-card-body {
+.jd-card__img {
+  position: relative;
+}
+
+.jd-card__img img {
+  display: block;
+  width: 100%;
+}
+
+.jd-card__content {
+  -ms-flex: 1 1 auto;
+  -webkit-box-flex: 1;
+          flex: 1 1 auto;
+  min-height: 1px;
   padding: 1.25rem;
 }
 
-/************ 
-Card Types 
-************/
-.card-rounded {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+.jd-card__content .jd-card__title {
+  margin-top: 0;
+  margin-bottom: .75rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
 
-.card-rounded .jade-card-image img {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+/****************************
+    Card Version 1 
+****************************/
+.jd-card-v1__img img {
+  max-height: 300px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.card-circle .jade-card-image {
+.jd-card-v2 figure {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -56,128 +83,285 @@ Card Types
   padding: 2rem;
 }
 
-.card-circle .jade-card-image img {
+.jd-card-v2 figure img {
   border-radius: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   width: 200px;
   height: 200px;
 }
 
-.card-circle .jade-card-body {
+/****************************
+    Card Version 2 
+****************************/
+.jd-card-v1__img img {
+  max-height: 300px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/****************************
+   Buttons 
+****************************/
+.btn {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  font-weight: 400;
+  color: inherit;
   text-align: center;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-decoration: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: inherit;
+  line-height: 1.5;
+  border-radius: .25rem;
+  -webkit-transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,-webkit-box-shadow .15s ease-in-out;
+}
+
+.btn:hover {
+  color: #bbbbbb;
+  text-decoration: none;
+}
+
+.btn--reg {
+  color: #fff;
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+/************ 
+Card Types 
+************/
+/*
+.jade-card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow: hidden;
+    transition: 0.5s ease;
+
+    /*
+    .jade-card-image { 
+        width: 100%; 
+        background-size: cover;
+        background-position: 100%;
+    }
+
+    .jade-card-body {
+        padding: 1.25rem;
+    } 
+}
+
+
+.card-rounded figure img {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-circle {
+    figure {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    
+        img {
+            border-radius: 100%;
+            width: 200px;
+            height: 200px;
+        }
+    }
+}
+
+.card-square figure img {
+    @include border-radius(0);
+}
+
+
+
+.card-rounded {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    
+    .jade-card-image img {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        object-fit: cover;
+    }
+}
+
+.card-circle {
+    .jade-card-image {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        padding: 2rem;
+    }
+
+    .jade-card-image img {
+        border-radius: 100%;
+        object-fit: cover;
+        width: 200px;
+        height: 200px;
+    }
+    .jade-card-body {
+        text-align: center;
+    }
 }
 
 .card-square {
-  border-radius: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
+    @include border-radius(0);
 }
+
+
+
+
 
 /************
 Grid CSS 
 ************/
-.display-grid, .jade-grid {
-  display: -ms-grid;
-  display: grid;
+/*
+.display-grid {
+    @include display-grid;
 }
 
 .jade-grid {
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+    @extend .display-grid;
+    grid-template-columns: 1fr;
 }
+
 
 /************
 Posts Section 
 ************/
+/*
+
 .jade-posts-block {
-  padding: 6rem 0;
-}
+    padding: 6rem 0;
 
-.jade-posts-block .jade-grid {
-  grid-row-gap: 40px;
-  grid-gap: 40px;
-}
-
-.jade-posts-block .jade-grid .jade-card {
-  cursor: pointer;
-}
-
-.jade-posts-block .jade-grid .jade-card:hover {
-  -webkit-transform: scale(1.05);
-  -moz-transform: scale(1.05);
-  -o-transform: scale(1.05);
-  ms-transform: scale(1.05);
-  transform: scale(1.05);
-  box-shadow: 0 0 31px -8px rgba(0, 0, 0, 0.34);
-  -webkit-box-shadow: 0 0 31px -8px rgba(0, 0, 0, 0.34);
-  -moz-box-shadow: 0 0 31px -8px rgba(0, 0, 0, 0.34);
-}
-
-.jade-posts-block .jade-grid .jade-card-title .jade-card-heading {
-  margin-bottom: 1rem;
-}
-
-.jade-posts-block .jade-grid .jade-card-title .jade-card-link {
-  color: #1994E7;
-  font-weight: 800;
+    .jade-grid {
+        grid-row-gap: 40px;
+        grid-gap: 40px;
+    
+        .jade-card {
+            cursor: pointer;
+    
+            &:hover {
+                @include transformScale(1.05);
+                @include  box-shadow(0, 0, 31px -8px, rgba(0,0,0,.34));
+            }
+        }
+    
+        .jade-card-title {
+    
+            .jade-card-heading {
+                margin-bottom: 1rem;
+            }
+    
+            .jade-card-link {
+                color: $accent-2;
+                font-weight: 800;
+            }
+        }
+    }
 }
 
 /****************
 Layout Card 01 
 ****************/
+/*
 .jade-card-01 {
-  background-size: cover;
-}
 
-.jade-card-01 .display-grid, .jade-card-01 .jade-grid {
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-}
 
-.jade-card-01 .jade-card-heading {
-  font-weight: 900;
-  margin-bottom: 1.5rem;
+    .display-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    background-size: cover;
+
+    
+    .jade-card-heading {
+        font-weight: 900;
+        margin-bottom: 1.5rem;
+    }
+
+    
+
 }
 
 /****************
 Hero 01 
 ****************/
+/*
 .hero-1 {
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding-top: 114px;
-  padding-bottom: 200px;
-  z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 114px;
+    padding-bottom: 200px;
+    z-index:-1;
 }
+
+
+
+
+
+
+@media (min-width: 620px) {
+	
+}
+
 
 @media (min-width: 1200px) {
-  .container {
-    max-width: 1200px;
-  }
+	.container {
+		max-width: 1200px;
+	}
 }
+
+
+
 
 /* Card with Image Section */
-.hero-6 .wp-block-button {
-  font-size: 14px !important;
-}
+/*
 
-.hero-6 {
-  padding-top: 114px;
-  padding-bottom: 200px;
-  z-index: -1;
-}
+.hero-6 .wp-block-button{
+    font-size:14px !important;
+ }
+ .hero-6 {
+   padding-top: 114px;
+   padding-bottom: 200px;
+   z-index:-1;
+ }
+ .hero-6 .columns-2{
+     max-width:928px;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top:-100px;
+   position: relative;
+   z-index:1;
+ }
+ .hero-6 .columns-1{
+   margin: 0 auto;
+     max-width: 72%;
+ }
 
-.hero-6 .columns-2 {
-  max-width: 928px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -100px;
-  position: relative;
-  z-index: 1;
-}
 
-.hero-6 .columns-1 {
-  margin: 0 auto;
-  max-width: 72%;
-}
+ */

@@ -148,6 +148,85 @@ class Jade_Blocks_Public {
 				));
 
 				/* CARD BLOCKS */
+
+				acf_register_block(array(
+					'name'				=> 'jade-card-v1',
+					'mode'				=> 'preview',
+					'title'				=> __('Card V1'),
+					'description'		=> __('A custom card block.'),
+					'render_callback'	=> 'jade_acf_block_render_callback',
+					'enqueue_assets' 	=> function(){
+						wp_enqueue_style( 'jade-block-css', plugin_dir_url( __FILE__ ) . '/css/jade-blocks-public.min.css', false,
+						'1.0.0' );
+					},
+					'category'			=> 'jade-acf-blocks',
+					'icon'				=> '<svg xmlns="http://www.w3.org/2000/svg" width="415" height="484" viewBox="0 0 415 484"><g transform="translate(-31 -34)"><g transform="translate(-7 17.754)"><rect width="415" height="484" transform="translate(38 16.246)" fill="#fff"/><rect width="415" height="267" transform="translate(38 16.246)" fill="#2699fb"/><text transform="translate(65 326.246)" fill="#7f7f7f" font-size="31" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="0" y="0">Heading</tspan></text><text transform="translate(65 366.246)" fill="#454545" font-size="10" font-family="ArialMT, Arial"><tspan x="0" y="9">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod </tspan><tspan x="0" y="20">tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At </tspan><tspan x="0" y="31">vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, </tspan><tspan x="0" y="42">no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit </tspan><tspan x="0" y="53">amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut </tspan><tspan x="0" y="64">labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam </tspan><tspan x="0" y="75">et justo</tspan></text></g><g transform="translate(50 478)"><g fill="none" stroke="#bce0fd" stroke-width="2"><rect width="96" height="40" rx="4" stroke="none"/><rect x="1" y="1" width="94" height="38" rx="3" fill="none"/></g><text transform="translate(48 24)" fill="#2699fb" font-size="10" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-15" y="0">MORE</tspan></text></g></g></svg>',
+					'keywords'			=> array( 'card', 'image', 'layout' ),
+					'supports'          => array(
+						'align'         => true,
+						'mode'          => true,
+						'multiple'      => true,
+					),
+					'example' => array(
+						'attributes' => array(
+							'mode' => 'preview',
+							'data' => array(
+								'background_color' => '#ff0000',
+								'other_custom_field' => 'xxx',
+							),
+						)
+					),
+				));
+
+				acf_register_block(array(
+					'name'				=> 'jade-card-v2',
+					'mode'				=> 'preview',
+					'title'				=> __('Card V2'),
+					'description'		=> __('A circular card block.'),
+					'render_callback'	=> 'jade_acf_block_render_callback',
+					'enqueue_assets' 	=> function(){
+						wp_enqueue_style( 'jade-block-css', plugin_dir_url( __FILE__ ) . '/css/jade-blocks-public.min.css', false,
+						'1.0.0' );
+					},
+					'category'			=> 'jade-acf-blocks',
+					'icon'				=> '<svg xmlns="http://www.w3.org/2000/svg" width="540" height="664" viewBox="0 0 540 664"><g transform="translate(-30 -21)"><g transform="translate(30 21)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-linecap="round" stroke-width="1"><rect width="540" height="664" stroke="none"/><rect x="0.5" y="0.5" width="539" height="663" fill="none"/></g><text transform="translate(55 435)" fill="#7f7f7f" font-size="40" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="0" y="0">Heading</tspan></text><text transform="translate(55 468)" fill="#454545" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="11">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor </tspan><tspan x="0" y="25">invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et </tspan><tspan x="0" y="39">accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata </tspan><tspan x="0" y="53">sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur </tspan><tspan x="0" y="67">sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna </tspan><tspan x="0" y="81">aliquyam erat, sed diam voluptua. At vero eos et accusam et justo</tspan></text><g transform="translate(54.718 593.227)"><g transform="translate(0.282 -0.227)" fill="none" stroke="#bce0fd" stroke-linecap="round" stroke-width="2"><rect width="125" height="52" rx="4" stroke="none"/><rect x="1" y="1" width="123" height="50" rx="3" fill="none"/></g><text transform="translate(61.282 30.773)" fill="#2699fb" font-size="12" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-18" y="0">MORE</tspan></text></g><circle cx="163.5" cy="163.5" r="163.5" transform="translate(136 32)" fill="#2699fb"/></g></svg>',
+					'keywords'			=> array( 'card', 'image', 'layout' ),
+					'supports'          => array(
+						'align'         => true,
+						'mode'          => true,
+						'multiple'      => true,
+					),
+				));
+
+				acf_register_block(array(
+					'name'				=> 'jade-card-v3',
+					'mode'				=> 'preview',
+					'title'				=> __('Card V3'),
+					'description'		=> __('A card block.'),
+					'render_callback'	=> 'jade_acf_block_render_callback',
+					'enqueue_assets' 	=> function(){
+						wp_enqueue_style( 'jade-block-css', plugin_dir_url( __FILE__ ) . '/css/jade-blocks-public.min.css', false,
+						'1.0.0' );
+					},
+					'category'			=> 'jade-acf-blocks',
+					'icon'				=> '<svg xmlns="http://www.w3.org/2000/svg" width="540" height="664" viewBox="0 0 540 664"><g transform="translate(-30 -21)"><g transform="translate(30 21)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-linecap="round" stroke-width="1"><rect width="540" height="664" stroke="none"/><rect x="0.5" y="0.5" width="539" height="663" fill="none"/></g><text transform="translate(55 435)" fill="#7f7f7f" font-size="40" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="0" y="0">Heading</tspan></text><text transform="translate(55 468)" fill="#454545" font-size="12" font-family="ArialMT, Arial"><tspan x="0" y="11">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor </tspan><tspan x="0" y="25">invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et </tspan><tspan x="0" y="39">accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata </tspan><tspan x="0" y="53">sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur </tspan><tspan x="0" y="67">sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna </tspan><tspan x="0" y="81">aliquyam erat, sed diam voluptua. At vero eos et accusam et justo</tspan></text><g transform="translate(54.718 593.227)"><g transform="translate(0.282 -0.227)" fill="none" stroke="#bce0fd" stroke-linecap="round" stroke-width="2"><rect width="125" height="52" rx="4" stroke="none"/><rect x="1" y="1" width="123" height="50" rx="3" fill="none"/></g><text transform="translate(61.282 30.773)" fill="#2699fb" font-size="12" font-family="Arial-BoldMT, Arial" font-weight="700"><tspan x="-18" y="0">MORE</tspan></text></g><circle cx="163.5" cy="163.5" r="163.5" transform="translate(136 32)" fill="#2699fb"/></g></svg>',
+					'keywords'			=> array( 'card', 'image', 'layout' ),
+					'supports'          => array(
+						'align'         => true,
+						'mode'          => true,
+						'multiple'      => true,
+					),
+
+				));
+
+
+
+
+
+
+
+
+				
 								
 				acf_register_block(array(
 					'name'				=> 'jade-card-block',
